@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Nouvel Utilisateur{% endblock %}
+
+
+{% block body %}
+
+    <nav>
+        <div id="hamburger-menu">
+            <!---span = bouton du menu hamburger (cache sur grand ecran)-->
+            <span>...</span>
+        <a href="{{ path('article_index') }}" class="link">Gestion des Articles</a>
+        <a href="{{ path('user_index') }}" class="link">Retour Liste Utilisateurs</a>
+        </div>
+    </nav>
+
+    <div class="main">
+
+    <h1>Ajouter un utilisateur</h1>
+
+        <div class="formulaire">
+            {{ form(form) }}
+        </div>
+
+
+    </div>
+
+{% endblock %}

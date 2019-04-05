@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+
+    <nav>
+        <div id="hamburger-menu">
+            <!---span = bouton du menu hamburger (cache sur grand ecran)-->
+            <span>...</span>
+        <a href="{{ path('article_index') }}" class="link">Gestion des Articles</a>
+        <a href="{{ path('user_index') }}" class="link">Retour Liste Utilisateurs</a>
+        <a href="{{ path('user_new') }}" class="link">Nouvel Utilisateur</a>
+        </div>
+    </nav>
+
+<div class="main">
+    <h1>Informations Utilisateur</h1>
+
+    <div class="liste">
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Pseudo</th>
+                <td>{{ user.username }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ user.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ user.prenom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    {{ include('user/_delete_form.html.twig') }}
+    </div>
+
+</div>
+{% endblock %}

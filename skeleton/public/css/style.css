@@ -1,0 +1,238 @@
+body{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: lightskyblue;
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+main {
+    margin: auto;
+    padding:10px;
+    width: 100%;
+}
+
+textarea{
+    width: 80%;
+    height: 25%;
+    margin: 5px;
+}
+
+input {
+    width: 60%;
+    margin: 5px;
+    padding: 3px;
+    border-radius: 15px;
+}
+
+button {
+    margin: 5px;
+    padding: 4px;
+    width: 25%;
+    border-radius: 15px;
+    background-color: midnightblue;
+    color: white;
+}
+
+h1{
+    color: midnightblue;
+    text-align: center;
+}
+
+h2{
+    color: midnightblue;
+}
+
+nav{
+    height: 5%;
+    padding: 1.5%;
+    background-color: gray;
+}
+
+table{
+    border-spacing: 20px;
+}
+
+.bandeau{
+    background-color: midnightblue;
+    color: white;
+    width: 100%;
+    padding: 1.5vw;
+    display: inline-block;
+}
+
+.picto {
+    height: 30px;
+}
+
+
+.LogOut {
+    color: white;
+    float: right;
+    margin-right: 3%;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+    padding: 1%;
+}
+
+.OneArticle {
+
+    width: 80%;
+    display: flex;
+}
+
+
+.imageList {
+    width: 350px;
+    height: 200px;
+    margin: 5px;
+}
+
+
+.pic, .indic {
+
+    margin: 2%;
+    padding: 1%;
+
+}
+
+.indic {
+    background-color: white;
+    border-radius: 20px;
+    width: 60%;
+}
+
+.image {
+    width: 70%;
+    margin: 3%;
+}
+
+.texte {
+
+    padding: 1%;
+    border-radius: 20px;
+
+}
+
+.lien{
+    text-decoration: none;
+    color: white;
+    background-color: midnightblue;
+    padding: 0.5%;
+    margin: 1%;
+    border-radius: 10px;
+}
+
+
+.article, .formulaire {
+    text-align: center;
+    margin: 3%;
+}
+
+.commentaires {
+    margin: 3%;
+}
+
+.comments {
+    background-color: white;
+    border-radius: 20px;
+    width: 90%;
+    margin: 5%;
+}
+
+.auteur, .commentxt, .modif  {
+    display: inline-block;
+    padding: 1%;
+}
+
+.commentxt {
+    width: 70%;
+}
+
+.pseudo, .author {
+    font-weight: bold;
+}
+
+.dateComm {
+    color: gray;
+    font-size: small;
+}
+
+
+.list{
+    display: flex;
+    justify-content: center;
+}
+
+
+/* menu hamburger >a= liens >span=bouton*/
+#hamburger-menu >a {
+    display: inline-block;
+    width: auto;
+    padding: 10px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+#hamburger-menu >span{
+    display: none;
+    text-align: center;
+    line-height: 5px;
+    padding-bottom: 20px;
+}
+
+/*version smartphone*/
+
+@media(max-width: 812px) {
+
+    button {
+        width: 50%;
+    }
+
+    .OneArticle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .imageList {
+        width: 250px;
+        height: 150px;
+    }
+
+    .indic {
+        width: 100%;
+        padding: 4%;
+    }
+
+    .comments {
+        padding: 4%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #hamburger-menu >a {
+        display: none;
+    }
+
+    #hamburger-menu >span{
+        display: inline-block;
+    }
+
+    /*pour le touch screen*/
+    #hamburger-menu:hover >a{
+        width: 80%;
+        display: block;
+        margin: 10px auto;
+    }
+
+    /*animation menu hamburger*/
+    #hamburger-menu:hover >span{
+        transform: rotate(90deg);
+        transition-property: transform;
+        transition-duration: 0.5s;
+    }
+}

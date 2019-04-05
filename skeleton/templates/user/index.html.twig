@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste Utilisateurs{% endblock %}
+
+{% block body %}
+    <nav>
+        <div id="hamburger-menu">
+            <!---span = bouton du menu hamburger (cache sur grand ecran)-->
+            <span>...</span>
+    <a href="{{ path('article_index') }}" class="link">Gestion des Articles</a>
+    <a href="{{ path('user_new') }}" class="link">Nouvel Utilisateur</a>
+        </div>
+    </nav>
+
+<div class="main">
+
+
+    <h1>Liste Utilisateurs</h1>
+
+    <div class="list">
+    <table class="table">
+
+        <thead>
+            <tr>
+
+                <th>Pseudo</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+
+        {% for user in users %}
+            <tr>
+
+                <td>{{ user.username }}</td>
+                <td>{{ user.nom }}</td>
+                <td>{{ user.prenom }}</td>
+
+                <td>
+                    <a href="{{ path('user_show', {'id': user.id}) }}"><img src="{{ asset('image/trashpictoblue.png') }}" class="picto" alt="supprimer"></a>
+                    <a href="{{ path('user_update', {'id': user.id}) }}"><img src="{{ asset('image/pictoeditblue.png') }}" class="picto" alt="modifier"></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">La liste est vide</td>
+            </tr>
+        {% endfor %}
+
+
+        </tbody>
+    </table>
+    </div>
+
+</div>
+{% endblock %}

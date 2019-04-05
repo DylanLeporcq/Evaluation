@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles{% endblock %}
+
+{% block body %}
+
+    {% if is_granted('ROLE_ADMIN') %}
+    <nav>
+        <div id="hamburger-menu">
+            <!---span = bouton du menu hamburger (cache sur grand ecran)-->
+            <span>...</span>
+    <a href="{{ path('article_new') }}" class="link">Nouvel Article</a>
+    <a href="{{ path('user_index') }}" class="link">Gestion Utilisateurs</a>
+        </div>
+    </nav>
+    {% endif %}
+
+
+        {% for article in articles %}
+
+
+<div class="OneArticle">
+
+                <div class="pic"><img src="{{ article.image }}" class="imageList" alt="image"></div>
+
+                <div class="indic">
+                <h2>{{ article.title }}</h2>
+                <div class="dateComm">Ecrit le {{ article.createdAt ? article.createdAt|date('Y-m-d') : '' }} à {{ article.createdAt ? article.createdAt|date('H:i:s') : '' }}</div>
+
+                <div class="texte">{{ article.content |slice(0, 300) }}</div>
+
+                <a href="{{ path('article_show', {'id': article.id}) }}" class="lien">Lire la suite</a>
+
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('article_edit', {'id': article.id}) }}" class="lien">Modifier</a>
+                    {% endif %}
+                </div>
+</div>
+
+        {% else %}
+
+                <div colspan="6">no records found</div>
+
+        {% endfor %}
+
+
+
+{% endblock %}

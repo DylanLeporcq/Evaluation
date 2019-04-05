@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Mettre à jour{% endblock %}
+
+{% block body %}
+    <nav>
+        <div id="hamburger-menu">
+            <!---span = bouton du menu hamburger (cache sur grand ecran)-->
+            <span>...</span>
+        <a href="{{ path('article_index') }}" class="link">Gestion des Articles</a>
+        <a href="{{ path('user_index') }}" class="link">Retour Liste Utilisateurs</a>
+        <a href="{{ path('user_new') }}" class="link">Nouvel Utilisateur</a>
+        </div>
+    </nav>
+
+<div class="main">
+    <h1>Mettre à jour les données de l'utilisateur</h1>
+
+    <div class="formulaire">
+    {{ form(form) }}
+    </div>
+
+</div>
+
+
+{% endblock %}

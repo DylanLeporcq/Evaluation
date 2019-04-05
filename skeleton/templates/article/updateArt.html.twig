@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Modifier l'article{% endblock %}
+
+{% block body %}
+
+
+    <nav>
+        <a href="{{ path('article_index') }}" class="link">Page d'acceuil</a>
+    </nav>
+
+    <h1>Modifier l'article</h1>
+
+    <div class="formulaire">
+    {{ form(form) }}
+    </div>
+
+
+{% endblock %}

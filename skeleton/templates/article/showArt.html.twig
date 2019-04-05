@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="main">
+
+    <nav>
+        <a href="{{ path('article_index') }}" class="link">Page d'acceuil</a>
+    </nav>
+
+
+    <div class="article">
+        {% if is_granted('ROLE_ADMIN') %}
+        {{ include('article/_delete_form.html.twig') }}
+         {% endif %}
+
+        <h2>{{ article.title }}</h2>
+
+        <div class="dateComm">Ecrit le {{ article.createdAt ? article.createdAt|date('Y-m-d') : '' }} à {{ article.createdAt ? article.createdAt|date('H:i:s') : '' }}</div>
+
+        <div ><img src="{{ article.image }}" class="image" alt="image"></div>
+
+        <div class="texte">{{ article.content }}</div>
+
+    </div>
+
+    <div class="commentaires">
+        <h1>Commentaires</h1>
+       <div class="formulaire">
+           {{ form(form) }}
+       </div>
+
+
+
+
+        {% for comment in article.comments %}
+        <div class="comments">
+            <div class="auteur">
+                <div class="pseudo">{{ app.user.username }}</div>
+                <div class="author">{{comment.author}}</div>
+                <div class="dateComm">écrit le {{ comment.createdAt ? article.createdAt|date('Y-m-d') : ''}} à {{ article.createdAt ? article.createdAt|date('H:i:s') : '' }} </div>
+            </div>
+
+                <div class="commentxt">{{ comment.content }}</div>
+
+            {% if is_granted('ROLE_ADMIN') %}
+            <div class="modif">
+                <a href="{{ path('comment_update', {'id': comment.id}) }}"><img src="{{ asset('image/pictoeditblue.png') }}" class="picto" alt="Modifier"></a>
+                <a href="{{ path('comment_show', {'id': comment.id}) }}"><img src="{{ asset('image/trashpictoblue.png') }}" class="picto" alt="Supprimer"></a>
+            </div>
+            {% endif %}
+
+        </div>
+        {% endfor %}
+
+
+    </div>
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Nouvel Utilisateur{% endblock %}
+
+
+{% block body %}
+
+
+    <nav>
+
+        <a href="{{ path('article_index') }}" class="link">Page d'acceuil</a>
+    </nav>
+
+
+    <h1>Nouvel Article</h1>
+
+    <div class="formulaire">
+    {{ form(form) }}
+    </div>
+
+
+{% endblock %}

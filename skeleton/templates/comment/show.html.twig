@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Comment{% endblock %}
+
+{% block body %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <nav>
+            <a href="{{ path('article_index') }}" class="link">Page d'acceuil</a>
+            <a href="{{ path('article_new') }}" class="link">Nouvel Article</a>
+            <a href="{{ path('user_index') }}" class="link">Gestion Utilisateurs</a>
+        </nav>
+    {% endif %}
+
+
+
+    <h1>Commentaire</h1>
+
+    <table class="table">
+        <tbody>
+
+            <tr>
+                <th>Auteur</th>
+                <td>{{ comment.author }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ comment.content }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ comment.createdAt ? comment.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    {{ include('comment/_delete_form.html.twig') }}
+{% endblock %}
